@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import Providers from "../Providers";
 import localFont from "next/font/local";
 
@@ -36,17 +35,20 @@ export const metadata: Metadata = {
   description: "Decentralized Autonomous Organization Organizator",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <Providers>
-        <body className={`${Openrunde.className} grid grid-rows-[auto_1fr_auto] min-h-screen`}>
+        <body className={`${Openrunde.className} flex flex-col h-screen`}>
           <Header />
-          <div className="flex flex-col md:flex-row">
+          <div className="bg-red-400 w-full flex items-center">
             <Navigation />
             {children}
           </div>
-          <Footer />
         </body>
       </Providers>
     </html>

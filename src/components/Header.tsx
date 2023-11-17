@@ -3,8 +3,8 @@ import LoginButton from "./button/LoginButton";
 
 const Header = () => {
   return (
-    <header className="flex justify-between w-full mx-auto px-6 lg:px-16 py-8">
-      <div className="font-bold text-4xl">Clade</div>
+    <header className="flex items-center justify-between bg-blue-400">
+      <div className="h-[96px]">Clade</div>
       <LoginButton />
     </header>
   );
