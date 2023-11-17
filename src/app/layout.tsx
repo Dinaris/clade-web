@@ -47,11 +47,7 @@ export default function RootLayout({
           <Header />
           <div className="w-full h-full flex items-center relative">
             <Navigation />
-            <div
-              className={"w-full h-full overflow-hidden flex justify-center"}
-            >
-              {children}
-            </div>
+            <div className={"w-full h-full"}>{children}</div>
           </div>
         </body>
       </Providers>

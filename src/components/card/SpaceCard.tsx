@@ -24,7 +24,10 @@ const SpaceCard = ({ daoName, color, text }: SpaceCard) => {
           {daoName}
         </p>
       </div>
-      <p className={"text-[28px] font-semibold text-white line-clamp-3"}>
+      <p
+        className={"text-[28px] font-semibold text-white line-clamp-3"}
+        style={{ lineHeight: "36px" }}
+      >
         {text}
       </p>
       <div className={"flex items-center justify-between mt-auto"}>
@@ -49,13 +52,15 @@ const SpaceCard = ({ daoName, color, text }: SpaceCard) => {
               alt=""
             />
           </div>
-          <p
-            className={
-              "text-[15px] font-medium opacity-75 text-white mix-blend-plus-lighter"
-            }
-          >
-            832 listening
-          </p>
+          <span className={"mix-blend-plus-lighter opacity-75"}>
+            <p
+              className={
+                "text-[15px] font-medium text-white opacity-75 mix-blend-plus-lighter"
+              }
+            >
+              832 listening
+            </p>
+          </span>
         </div>
         <button
           className={
