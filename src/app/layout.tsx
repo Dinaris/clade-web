@@ -43,12 +43,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Providers>
-        <body className={`${Openrunde.className} flex flex-col h-screen `}>
+        <body className={`${Openrunde.className}`}>
           <Header />
-          <div className="w-full flex items-center relative">
-            <Navigation />
-            <div className={"w-full overflow-scroll"}>{children}</div>
-          </div>
+          <Navigation />
+          {children}
         </body>
       </Providers>
     </html>

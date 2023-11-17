@@ -5,8 +5,8 @@ import UpcomingCard from "@/components/card/UpcomingCard";
 
 export default function Home() {
   return (
-    <div className={"w-full flex"}>
-      <div className="mx-auto pr-[256px] flex flex-col gap-[64px] max-w-[1200px]">
+    <div className={"w-full flex justify-center pt-[92px]"}>
+      <div className="flex flex-col gap-[64px] max-w-[912px]">
         <div className={"flex flex-col gap-[16px] w-full"}>
           <p className={"pl-[28px] text-[32px] font-bold"}>Happening Now</p>
           <div className={"flex gap-[16px] flex-wrap overflow-hidden "}>

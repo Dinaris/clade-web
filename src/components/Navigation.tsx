@@ -10,7 +10,7 @@ const Navigation = () => {
   return (
     <nav
       className={
-        "h-full w-[256px] flex flex-col gap-[32px] pl-[48px] pt-[16px]"
+        "h-[calc(100vh-92px)] w-[256px] fixed top-[92px] left-0  flex flex-col gap-[32px] pl-[48px] pt-[16px]"
       }
     >
       <Link href={"test"} className={"flex items-center gap-[16px]"}>
