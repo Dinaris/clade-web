@@ -76,5 +76,7 @@
 }
 
 body{
-  background: #FBFAF9;
+  background: #FAF5F0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

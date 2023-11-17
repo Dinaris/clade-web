@@ -13,18 +13,18 @@ const Openrunde = localFont({
       style: "normal",
     },
     {
-      path: "../fonts/OpenRunde-Regular.woff",
+      path: "../fonts/OpenRunde-Medium.woff",
       weight: "500",
       style: "normal",
     },
     {
-      path: "../fonts/OpenRunde-Regular.woff",
+      path: "../fonts/OpenRunde-Semibold.woff",
       weight: "600",
       style: "normal",
     },
     {
-      path: "../fonts/OpenRunde-Regular.woff",
-      weight: "600",
+      path: "../fonts/OpenRunde-Bold.woff",
+      weight: "700",
       style: "normal",
     },
   ],
@@ -47,7 +47,11 @@ export default function RootLayout({
           <Header />
           <div className="w-full h-full flex items-center relative">
             <Navigation />
-            {children}
+            <div
+              className={"w-full h-full overflow-hidden flex justify-center"}
+            >
+              {children}
+            </div>
           </div>
         </body>
       </Providers>

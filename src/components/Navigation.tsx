@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import HomeIcon from "@/components/icons/HomeIcon";
+import ExploreIcon from "@/components/icons/ExploreIcon";
+import ProfileIcon from "@/components/icons/ProfileIcon";
 
 import { Button } from "@/components/ui/button";
 
@@ -16,11 +18,11 @@ const Navigation = () => {
         <p className={"text-xl"}>Home</p>
       </Link>
       <Link href={"test"} className={"flex items-center gap-[16px]"}>
-        <HomeIcon className={"w-[28px] h-[28px]"} />
+        <ExploreIcon className={"w-[28px] h-[28px]"} />
         <p className={"text-xl"}>Explore</p>
       </Link>
       <Link href={"test"} className={"flex items-center gap-[16px]"}>
-        <HomeIcon className={"w-[28px] h-[28px]"} />
+        <ProfileIcon className={"w-[28px] h-[28px]"} />
         <p className={"text-xl"}>Profile</p>
       </Link>
     </nav>

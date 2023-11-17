@@ -1,22 +1,69 @@
 import React from "react";
 import SoundIcon from "../icons/SoundIcon";
-import { Button } from "../ui/button";
 import { SpaceCard } from "@/types";
 
-const SpaceCard = ({ title, daoName }: SpaceCard) => {
+const SpaceCard = ({ daoName, color, text }: SpaceCard) => {
   return (
-    <div className="flex flex-col gap-4 bg-slate-100 rounded-2xl p-8 w-full md:max-w-[512px]">
-      <div className="flex items-center gap-2 text-slate-400">
-        <SoundIcon /> {daoName}
+    <div
+      className={
+        "h-[288px] w-[448px] gap-[16px] flex flex-col rounded-3xl p-[28px] pb-[22px] "
+      }
+      style={{ backgroundColor: color }}
+    >
+      <div
+        className={
+          "flex items-center gap-[12px] opacity-75 mix-blend-plus-lighter"
+        }
+      >
+        <SoundIcon className={"mix-blend-plus-lighter opacity-75"} />
+        <p
+          className={
+            "text-[17px] text-white opacity-75 mix-blend-plus-lighter opacity-75 font-medium"
+          }
+        >
+          {daoName}
+        </p>
       </div>
-      <h1 className="text-3xl font-bold">{title}</h1>
-      <div className="flex flex-wrap items-center justify-between mt-8">
-        <div className="flex">
-          <div className="w-8 h-8 rounded-full bg-orange-500 -ml-2 border-2 border-slate-100" />
-          <div className="w-8 h-8 rounded-full bg-red-500 -ml-2 border-2 border-slate-100" />
-          <div className="w-8 h-8 rounded-full bg-blue-500 -ml-2 border-2 border-slate-100" />
+      <p className={"text-[28px] font-semibold text-white line-clamp-3"}>
+        {text}
+      </p>
+      <div className={"flex items-center justify-between mt-auto"}>
+        <div className={"flex items-center gap-[12px]"}>
+          <div className="flex -space-x-[8px]">
+            <img
+              className="w-[28px] aspect-square border-2 rounded-full"
+              style={{ borderColor: color }}
+              src="/examplepp.png"
+              alt=""
+            />
+            <img
+              className="w-[28px] aspect-square border-2 rounded-full"
+              style={{ borderColor: color }}
+              src="/examplepp.png"
+              alt=""
+            />
+            <img
+              className="w-[28px] aspect-square border-2 rounded-full"
+              style={{ borderColor: color }}
+              src="/examplepp.png"
+              alt=""
+            />
+          </div>
+          <p
+            className={
+              "text-[15px] font-medium opacity-75 text-white mix-blend-plus-lighter"
+            }
+          >
+            832 listening
+          </p>
         </div>
-        <Button>Start Listening</Button>
+        <button
+          className={
+            "text-[17px] font-semibold leading-[24px] bg-white/25  text-white py-[8px] px-[20px] rounded-full"
+          }
+        >
+          Start Listening
+        </button>
       </div>
     </div>
   );
