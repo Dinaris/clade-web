@@ -45,7 +45,7 @@ export default function RootLayout({
       <Providers>
         <body className={`${Openrunde.className} flex flex-col h-screen`}>
           <Header />
-          <div className="bg-red-400 w-full flex items-center">
+          <div className="w-full h-full flex items-center relative">
             <Navigation />
             {children}
           </div>

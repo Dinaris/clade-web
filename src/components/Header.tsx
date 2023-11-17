@@ -3,8 +3,8 @@ import LoginButton from "./button/LoginButton";
 
 const Header = () => {
   return (
-    <header className="flex items-center justify-between bg-blue-400">
-      <div className="h-[96px]">Clade</div>
+    <header className="h-32 flex items-center justify-between px-[48px]">
+      <img src="/logo.svg" alt="logo" />
       <LoginButton />
     </header>
   );
