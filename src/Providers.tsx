@@ -23,10 +23,12 @@ const wagmiConfig = defaultWagmiConfig({ chains, projectId, metadata });
 // 3. Create modal
 createWeb3Modal({ wagmiConfig, projectId, chains });
 
-export function Providers({ children }: { children: any }) {
+const Providers = ({ children }: { children: any }) => {
   return (
     <SessionProvider>
       <WagmiConfig config={wagmiConfig}>{children}</WagmiConfig>
     </SessionProvider>
   );
-}
+};
+
+export default Providers;
