@@ -3,7 +3,7 @@ import LoginButton from "./button/LoginButton";
 
 const Header = () => {
   return (
-    <header className="h-32 flex items-center justify-between px-[48px]">
+    <header className="flex min-h-[92px] items-center justify-between px-[48px]">
       <img src="/logo.svg" alt="logo" />
       <LoginButton />
     </header>
