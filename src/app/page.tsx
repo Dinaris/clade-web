@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import SpaceCard from "@/components/card/SpaceCard";
 import UpcomingCard from "@/components/card/UpcomingCard";
+import JoinedCard from "@/components/card/JoinedCard";
 
 export default function Home() {
   return (
@@ -51,6 +52,22 @@ export default function Home() {
                 "Swap $ARB Tokens to USDC and Bridge to the Ethereum Mainnet"
               }
             />
+          </div>
+        </div>
+        <div className={"flex flex-col gap-[16px] w-full"}>
+          <p
+            className={
+              "pl-[44px] text-[24px] font-semibold text-black opacity-50 mix-blend-darken"
+            }
+          >
+            Joined DAOs
+          </p>
+          <div className={"flex gap-[8px] flex-wrap "}>
+            <JoinedCard daoName={"ENS"} />
+            <JoinedCard daoName={"ENS"} />
+            <JoinedCard daoName={"ENS"} />
+            <JoinedCard daoName={"ENS"} />
+            <JoinedCard daoName={"ENS"} />
           </div>
         </div>
       </div>
