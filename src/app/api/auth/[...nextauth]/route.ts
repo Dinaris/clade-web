@@ -9,11 +9,12 @@ export const authOptions: NextAuthOptions = {
       name: "Worldcoin",
       type: "oauth",
       wellKnown: "https://id.worldcoin.org/.well-known/openid-configuration",
-      authorization: { params: { scope: "openid" } },
+      authorization: { params: { scope: "profile openid" } },
       clientId: process.env.NEXT_PUBLIC_WORLDCOIN_CLIENT_ID,
       clientSecret: process.env.WORLDCOIN_CLIENT_SECRET,
       idToken: true,
       profile(profile: any) {
+        console.log('profile worldcoin: ', profile);
         return {
           id: profile.sub,
           name: profile.sub,
@@ -24,9 +25,9 @@ export const authOptions: NextAuthOptions = {
       clientId: process.env.NEXT_PUBLIC_AUTH0_CLIENT_ID!,
       clientSecret: process.env.AUTH0_CLIENT_SECRET!,
       issuer: process.env.NEXT_PUBLIC_AUTH0_DOMAIN,
-      authorization: { params: { scope: "openid email name" } },
+      authorization: { params: { scope: "profile openid email name" } },
       profile(profile: any, tokens: any) {
-        console.log("profile: ", profile);
+        console.log("profile auth0: ", profile);
         return {
           id: profile.sub,
           name: profile.name,
