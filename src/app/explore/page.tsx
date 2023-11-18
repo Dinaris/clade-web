@@ -1,4 +1,12 @@
 "use client";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+
 import JoinedCard from "@/components/card/JoinedCard";
 import PlusIcon from "@/components/icons/PlusIcon";
 import * as Dialog from "@radix-ui/react-dialog";
@@ -76,7 +84,7 @@ const Page = () => {
                           src="/examplepp.png"
                           className={"w-32 h-32 rounded-full"}
                         />
-                        <div className="cursor-pointer text-[17px] relative overflow-hidden font-semibold border border-2 border-black/5 rounded-full flex items-center px-[20px] py-[8px] gap-[8px]">
+                        <div className="cursor-pointer text-[17px] relative overflow-hidden font-semibold border border-2 border-black/5 rounded-full flex items-center px-[20px] py-[8px] gap-[8px] mt-2">
                           <label>Upload Avatar</label>
                           <input
                             placeholder={""}
@@ -84,6 +92,17 @@ const Page = () => {
                             className="w-full cursor-pointer h-full absolute opacity-0"
                           />
                         </div>
+                        <Select >
+                          <SelectTrigger className="w-full mt-2  bg-[#F1E7DF] placeholder-[#756D66] h-14 outline-none border-none px-[24px] py-[14px] rounded-[12px] font-medium">
+                            <SelectValue placeholder="Theme" />
+                          </SelectTrigger>
+                          <SelectContent className={"z-[999]"}>
+                            <SelectItem value="test">
+                              <div  className={"flex items-center gap-2"}><img src="/examplepp.png" alt=""/>Example</div>
+                            </SelectItem>
+                          </SelectContent>
+                        </Select>
+
                         <input
                           className={
                             "w-full mt-[48px] outline-none text-[17px] bg-[#EBE1D8]/50 placeholder-[#756D66]  px-[24px] py-[14px] rounded-[12px] font-medium "
