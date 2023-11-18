@@ -11,7 +11,6 @@ const authOptions: NextAuthOptions = {
       authorization: { params: { scope: "profile openid email name app_metadata.credential_type" } },
       profile(profile: any, tokens: any) {
         console.log("profile auth0: ", profile);
-        console.log("tokens auth0: ", tokens);
         return {
           id: profile.sub,
           name: profile.name,

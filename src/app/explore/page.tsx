@@ -1,13 +1,44 @@
 "use client";
 import JoinedCard from "@/components/card/JoinedCard";
-import UpcomingCard from "@/components/card/UpcomingCard";
 import PlusIcon from "@/components/icons/PlusIcon";
 import * as Dialog from "@radix-ui/react-dialog";
 import WorldcoinIcon from "@/components/icons/WorldcoinIcon";
 import TwitterIcon from "@/components/icons/TwitterIcon";
 import { Button } from "@/components/ui/button";
+import {useEffect, useState} from "react";
+import {usePrepareContractWrite, useContractWrite, useWalletClient, useChainId, useWaitForTransaction} from "wagmi";
+import DaoABI from "@/abi/Dao.json";
 
 const Page = () => {
+  const [name, setName] = useState("");
+  const [xUsername, setXUsername] = useState("");
+  const [website, setWebsite] = useState("");
+  const [description, setDescription] = useState("");
+  const [hash, setHash] = useState("");
+  const chainId = useChainId();
+  const { data: walletClient } = useWalletClient({ chainId });
+  const {
+    data: deployTx
+  } = useWaitForTransaction({
+    hash: hash as `0x${string}`,
+  });
+
+  const onCreateDao = async () => {
+    const hash = await walletClient?.deployContract({
+      abi: DaoABI.abi,
+      bytecode: DaoABI.bytecode as `0x${string}`,
+      args: [name, "", description],
+    })
+    setHash(hash!)
+  }
+
+  useEffect(() => {
+    const postData = async () => {
+      console.log(deployTx)
+    }
+    postData();
+  }, [deployTx])
+
   return (
     <div>
       <div className={"w-full flex justify-center pt-[92px]"}>
@@ -59,12 +90,16 @@ const Page = () => {
                           }
                           type="text"
                           placeholder={"Name"}
+                          onChange={(e) => setName(e.target.value)}
+                          value={name}
                         />
                         <textarea
                           placeholder={"About"}
                           className={
                             "w-full mt-[8px] outline-none text-[17px] bg-[#EBE1D8]/50 placeholder-[#756D66] placeholder-medium px-[24px] py-[14px] rounded-[12px] resize-none font-medium"
                           }
+                          onChange={(e) => setDescription(e.target.value)}
+                          value={description}
                         />
                         <div
                           className={
@@ -77,6 +112,8 @@ const Page = () => {
                             }
                             type="text"
                             placeholder={"Username"}
+                            onChange={(e) => setXUsername(e.target.value)}
+                            value={xUsername}
                           />
                           <TwitterIcon className={"absolute left-[16px]"} />
                         </div>
@@ -91,6 +128,8 @@ const Page = () => {
                             }
                             type="text"
                             placeholder={"Website"}
+                            onChange={(e) => setWebsite(e.target.value)}
+                            value={website}
                           />
                           <WorldcoinIcon className={"absolute left-[16px]"} />
                         </div>
@@ -104,6 +143,7 @@ const Page = () => {
                           className={
                             "w-[320px] py-[14px] bg-[#00BBFF] rounded-full text-white"
                           }
+                          onClick={onCreateDao}
                         >
                           Create DAO
                         </button>

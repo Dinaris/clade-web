@@ -3,10 +3,10 @@
 import { createWeb3Modal, defaultWagmiConfig } from "@web3modal/wagmi/react";
 
 import { WagmiConfig } from "wagmi";
-import { arbitrum, mainnet } from "viem/chains";
+import { arbitrum, optimism, mainnet, scroll, goerli } from "viem/chains";
 import { SessionProvider } from "next-auth/react";
 
-// 1. Get projectId
+// 1. Get projectIdo
 const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID!;
 
 // 2. Create wagmiConfig
@@ -17,7 +17,7 @@ const metadata = {
   icons: ["https://avatars.githubusercontent.com/u/151222307?s=200&v=4"],
 };
 
-const chains = [mainnet, arbitrum];
+const chains = [mainnet, arbitrum, optimism, scroll, goerli];
 const wagmiConfig = defaultWagmiConfig({ chains, projectId, metadata });
 
 // 3. Create modal
