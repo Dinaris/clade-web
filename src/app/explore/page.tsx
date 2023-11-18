@@ -4,6 +4,7 @@ import UpcomingCard from "@/components/card/UpcomingCard";
 import PlusIcon from "@/components/icons/PlusIcon";
 import * as Dialog from "@radix-ui/react-dialog";
 import WorldcoinIcon from "@/components/icons/WorldcoinIcon";
+import TwitterIcon from "@/components/icons/TwitterIcon";
 import { Button } from "@/components/ui/button";
 
 const Page = () => {
@@ -77,7 +78,7 @@ const Page = () => {
                             type="text"
                             placeholder={"Username"}
                           />
-                          <WorldcoinIcon className={"absolute left-[16px]"} />
+                          <TwitterIcon className={"absolute left-[16px]"} />
                         </div>
                         <div
                           className={
