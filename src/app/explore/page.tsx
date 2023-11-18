@@ -4,12 +4,15 @@ import PlusIcon from "@/components/icons/PlusIcon";
 import * as Dialog from "@radix-ui/react-dialog";
 import WorldcoinIcon from "@/components/icons/WorldcoinIcon";
 import TwitterIcon from "@/components/icons/TwitterIcon";
-import { Button } from "@/components/ui/button";
-import {useEffect, useState} from "react";
-import {usePrepareContractWrite, useContractWrite, useWalletClient, useChainId, useWaitForTransaction} from "wagmi";
+import { useEffect, useState } from "react";
+import { useWalletClient, useChainId, useWaitForTransaction, useAccount, readContracts } from "wagmi";
 import DaoABI from "@/abi/Dao.json";
+import ConnectButton from "@/components/button/ConnectButton";
+import axios from "axios";
+import { Dao, DaoConfig, Member, Proposal, Session } from "@/types";
 
 const Page = () => {
+  const [daos, setDaos] = useState<Dao[]>([]);
   const [name, setName] = useState("");
   const [xUsername, setXUsername] = useState("");
   const [website, setWebsite] = useState("");
@@ -17,27 +20,150 @@ const Page = () => {
   const [hash, setHash] = useState("");
   const chainId = useChainId();
   const { data: walletClient } = useWalletClient({ chainId });
-  const {
-    data: deployTx
-  } = useWaitForTransaction({
+  const { address: account } = useAccount();
+  const { data: deployTx } = useWaitForTransaction({
     hash: hash as `0x${string}`,
   });
 
-  const onCreateDao = async () => {
+  const onCreateDao = async (e: any) => {
+    e.preventDefault();
     const hash = await walletClient?.deployContract({
       abi: DaoABI.abi,
       bytecode: DaoABI.bytecode as `0x${string}`,
       args: [name, "", description],
-    })
-    setHash(hash!)
-  }
+    });
+    setHash(hash!);
+  };
 
   useEffect(() => {
     const postData = async () => {
-      console.log(deployTx)
-    }
+      const contractAddress = deployTx?.contractAddress;
+      if (contractAddress) {
+        await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/daos`, {
+          key: contractAddress,
+          contractAddress,
+          name,
+          xUsername,
+          website,
+          description,
+          owner: account,
+        });
+      }
+      console.log(deployTx);
+    };
     postData();
-  }, [deployTx])
+  }, [deployTx]);
+
+  useEffect(() => {
+    const getDaos = async () => {
+      const daosResult = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/daos`);
+      const daos: Dao[] = await Promise.all(
+        daosResult.data.map(async (dao: DaoConfig) => {
+          const methods = ["sessionCount", "proposalCount", "memberCount"];
+          const [{ result: sessionCount }, { result: proposalCount }, { result: memberCount }] = await readContracts({
+            contracts: methods.map((method) => ({
+              abi: DaoABI.abi as any,
+              address: dao.contractAddress as `0x${string}`,
+              functionName: method,
+            })),
+          });
+          const sessions: Session[] = await Promise.all(
+            [...Array(Number(sessionCount!)).keys()].map(async (sessionId) => {
+              const [{ result }] = await readContracts({
+                contracts: [
+                  {
+                    abi: DaoABI.abi as any,
+                    address: dao.contractAddress as `0x${string}`,
+                    functionName: "sessions",
+                    args: [sessionId],
+                  },
+                ],
+              });
+
+              return {
+                proposalId: Number(result?.[0]),
+                createTime: result?.[1].toString(),
+                startTime: result?.[2].toString(),
+                endTime: result?.[3].toString(),
+                status: Number(result?.[4]),
+
+                members: result?.[5],
+                voices: result?.[6],
+                moderators: result?.[7],
+              } as Session;
+            })
+          );
+          const proposals: Proposal[] = await Promise.all(
+            [...Array(Number(proposalCount!)).keys()].map(async (proposalId) => {
+              const [{ result }] = await readContracts({
+                contracts: [
+                  {
+                    abi: DaoABI.abi as any,
+                    address: dao.contractAddress as `0x${string}`,
+                    functionName: "proposals",
+                    args: [proposalId],
+                  },
+                ],
+              });
+              return {
+                id: Number(result?.[0]),
+                name: result?.[1],
+                description: result?.[2],
+                document: result?.[3],
+                createTime: result?.[4].toString(),
+                startTime: result?.[5].toString(),
+                endTime: result?.[6].toString(),
+                status: Number(result?.[7]),
+                requester: result?.[8],
+                dao: result?.[9],
+
+                speakers: result?.[10],
+                moderators: result?.[11],
+              } as Proposal;
+            })
+          );
+          const members: Member[] = await Promise.all(
+            [...Array(Number(memberCount!)).keys()].map(async (memberId) => {
+              const [{ result }] = await readContracts({
+                contracts: [
+                  {
+                    abi: DaoABI.abi as any,
+                    address: dao.contractAddress as `0x${string}`,
+                    functionName: "getMemberFromId",
+                    args: [memberId],
+                  },
+                ],
+              });
+
+              console.log("memberResult: ", result);
+              return {
+                address: result?.[0],
+                userType: Number(result?.[1]), //0 - member, 1 - moderator, 2 - council
+                level: Number(result?.[2]),
+                status: Number(result?.[3]), //active, waiting approval , banned
+                createTime: result?.[4].toString(),
+                updateTime: result?.[5].toString(),
+              } as Member;
+            })
+          );
+
+          return {
+            ...dao,
+            sessions,
+            proposals,
+            members,
+          };
+        })
+      );
+      setDaos(daos);
+    };
+
+    getDaos();
+  }, []);
+
+  const daoCards = daos.map((dao: any) => <JoinedCard key={dao.key} daoName={dao.name} address={dao.address} />);
+
+  console.log("daos: ", daos);
 
   return (
     <div>
@@ -67,15 +193,8 @@ const Page = () => {
                     </Dialog.Close>
                     <p className={"text-[24px] font-semibold"}>Create a DAO</p>
                     <form className={"w-full"}>
-                      <div
-                        className={
-                          "flex flex-col items-center mt-[24px] w-full"
-                        }
-                      >
-                        <img
-                          src="/examplepp.png"
-                          className={"w-32 h-32 rounded-full"}
-                        />
+                      <div className={"flex flex-col items-center mt-[24px] w-full"}>
+                        <img src="/examplepp.png" className={"w-32 h-32 rounded-full"} />
                         <div className="cursor-pointer text-[17px] relative overflow-hidden font-semibold border border-2 border-black/5 rounded-full flex items-center px-[20px] py-[8px] gap-[8px]">
                           <label>Upload Avatar</label>
                           <input
@@ -101,11 +220,7 @@ const Page = () => {
                           onChange={(e) => setDescription(e.target.value)}
                           value={description}
                         />
-                        <div
-                          className={
-                            "relative w-full flex items-center mt-[48px]"
-                          }
-                        >
+                        <div className={"relative w-full flex items-center mt-[48px]"}>
                           <input
                             className={
                               "w-full outline-none text-[17px] pl-[56px] bg-[#EBE1D8]/50 placeholder-[#756D66]  px-[24px] py-[14px] rounded-[12px] font-medium "
@@ -117,11 +232,7 @@ const Page = () => {
                           />
                           <TwitterIcon className={"absolute left-[16px]"} />
                         </div>
-                        <div
-                          className={
-                            "relative w-full flex items-center mt-[8px]"
-                          }
-                        >
+                        <div className={"relative w-full flex items-center mt-[8px]"}>
                           <input
                             className={
                               "w-full outline-none text-[17px] pl-[56px] bg-[#EBE1D8]/50 placeholder-[#756D66]  px-[24px] py-[14px] rounded-[12px] font-medium "
@@ -134,38 +245,24 @@ const Page = () => {
                           <WorldcoinIcon className={"absolute left-[16px]"} />
                         </div>
                       </div>
-                      <div
-                        className={
-                          "absolute left-0 w-full h-32 bottom-0 bg-gradient-to-t from-[#F5EBE6] flex w-full items-center justify-center"
-                        }
-                      >
-                        <button
-                          className={
-                            "w-[320px] py-[14px] bg-[#00BBFF] rounded-full text-white"
-                          }
-                          onClick={onCreateDao}
-                        >
-                          Create DAO
-                        </button>
+                      <div className={"mt-4 bg-gradient-to-t from-[#F5EBE6] flex w-full items-center justify-center"}>
+                        {account ? (
+                          <button
+                            className={"w-[320px] py-[14px] bg-[#00BBFF] rounded-full text-white"}
+                            onClick={onCreateDao}
+                          >
+                            Create DAO
+                          </button>
+                        ) : (
+                          <ConnectButton />
+                        )}
                       </div>
                     </form>
                   </Dialog.Content>
                 </Dialog.Portal>
               </Dialog.Root>
             </div>
-            <div className={"flex gap-[8px] flex-wrap "}>
-              <JoinedCard daoName={"ENS"} />
-              <JoinedCard daoName={"ENS"} />
-              <JoinedCard daoName={"ENS"} />
-              <JoinedCard daoName={"ENS"} />
-              <JoinedCard daoName={"ENS"} />
-              <JoinedCard daoName={"ENS"} />
-              <JoinedCard daoName={"ENS"} />
-              <JoinedCard daoName={"ENS"} />
-              <JoinedCard daoName={"ENS"} />
-              <JoinedCard daoName={"ENS"} />
-              <JoinedCard daoName={"ENS"} />
-            </div>
+            <div className={"flex gap-[8px] flex-wrap "}>{daoCards}</div>
           </div>
         </div>
       </div>
