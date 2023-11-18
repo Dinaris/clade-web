@@ -67,7 +67,7 @@ const Page = () => {
                 </Dialog.Trigger>
                 <Dialog.Portal>
                   <Dialog.Overlay className="bg-[#DBD3CC]/75 top-0 z-[3] data-[state=open]:animate-overlayShow fixed inset-0" />
-                  <Dialog.Content className="data-[state=open]:animate-contentShow w-[512px] min-h-[600px]  rounded-3xl fixed z-[99] top-[50%] left-[50%] ] translate-x-[-50%] translate-y-[-50%]  focus:outline-none bg-[#F5EDE6] px-[44px] pb-[72px] pt-[28px] flex flex-col items-center overflow-y-scroll">
+                  <Dialog.Content className="data-[state=open]:animate-contentShow w-[512px] min-h-[600px]  rounded-3xl h-[calc(100vh-64px)] fixed z-[99] top-[50%] left-[50%] ] translate-x-[-50%] translate-y-[-50%]  focus:outline-none bg-[#F5EDE6] px-[44px] pb-[72px] pt-[28px] flex flex-col items-center overflow-y-scroll ">
                     <Dialog.Close asChild>
                       <button className="fixed top-[20px] left-[20px] rotate-45 p-[14px] rounded-full bg-[#F0E7DF] hover:bg-[#E9E0D8] active:bg-[#E0D7CF]">
                         <PlusIcon className={"opacity-75 w-[20px] h-[20px]"} />
