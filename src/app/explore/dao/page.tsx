@@ -69,7 +69,14 @@ const Page = () => {
                     </div>
                 </Tabs.Content>
                 <Tabs.Content value="tab2" className={"mt-[16px]"}>
-                    <div>b</div>
+                    <div className={"flex flex-col gap-[16px] w-full"}>
+                        <div className={"flex gap-[16px] flex-wrap overflow-hidden "}>
+                            <div className={"w-[440px] h-[84px] bg-[#F5EDE6] p-[28px] pb-[22px] rounded-3xl flex items-center gap-[16px]"}>
+                                <img src="/examplepp.png" alt=""/>
+                                <p>benjitaylor.eth</p>
+                            </div>
+                        </div>
+                    </div>
                 </Tabs.Content>
             </Tabs.Root>
         </div>
