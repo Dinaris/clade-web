@@ -1,47 +1,50 @@
+"use client";
 import React from "react";
+import * as Tabs from "@radix-ui/react-tabs";
 
 const SessionPage = ({ params }: any) => {
   const sessionId = params.sessionId;
   console.log("session Id", sessionId);
   return (
-    <div
-      className={
-        "w-full h-screen flex gap-[16px] flex-col pt-[96px] pb-[32px] pl-[256px] pr-[40px]"
-      }
-    >
-      <div className={"w-full flex flex-col gap-[4px] pl-[28px]"}>
-        <div className={"flex items-center gap-[12px]"}>
-          <div className={"relative w-[32px] h-[32px]"}>
-            <img
-              src="/examplepp.png"
-              className={
-                "absolute z-[10] rounded-full left-0 bottom-0 w-[24px] h-[24px] border border-1 border-[#FAF5F0]"
-              }
-            />
-            <img
-              src="/examplepp.png"
-              className={
-                "absolute rounded-full top-0 right-0 w-[20px] h-[20px] "
-              }
-            />
+    <div className={"flex flex-col w-full"}>
+      <div
+        className={
+          "w-full h-screen flex gap-[16px] flex-col pt-[96px] pb-[32px] pl-[256px] pr-[40px]"
+        }
+      >
+        <div className={"w-full flex flex-col gap-[4px] pl-[28px]"}>
+          <div className={"flex items-center gap-[12px]"}>
+            <div className={"relative w-[32px] h-[32px]"}>
+              <img
+                src="/examplepp.png"
+                className={
+                  "absolute z-[10] rounded-full left-0 bottom-0 w-[24px] h-[24px] border border-1 border-[#FAF5F0]"
+                }
+              />
+              <img
+                src="/examplepp.png"
+                className={
+                  "absolute rounded-full top-0 right-0 w-[20px] h-[20px] "
+                }
+              />
+            </div>
+            <div className={"flex items-center gap-1 text-[17px] font-medium"}>
+              <p className={"text-[#9B9B9B]"}>Aave by</p>
+              <p className={""}>gauntletgov.eth</p>
+            </div>
           </div>
-          <div className={"flex items-center gap-1 text-[17px] font-medium"}>
-            <p className={"text-[#9B9B9B]"}>Aave by</p>
-            <p className={""}>gauntletgov.eth</p>
-          </div>
+          <p className={"text-[32px] leading-[40px] font-semibold"}>
+            Gauntlet Cap Recommendations for Polygon v3
+          </p>
         </div>
-        <p className={"text-[32px] leading-[40px] font-semibold"}>
-          Gauntlet Cap Recommendations for Polygon v3
-        </p>
-      </div>
-      <div className="flex w-full h-full gap-[16px]">
-        <iframe
-          src={`https://192.168.226.76/${sessionId}`}
-          allow="microphone"
-          id="myIframe"
-          className="rounded-2xl flex w-full h-full"
-        ></iframe>
-        {/*
+        <div className="flex w-full h-full gap-[16px]">
+          <iframe
+            src={`https://192.168.226.76/${sessionId}`}
+            allow="microphone"
+            id="myIframe"
+            className="rounded-2xl flex w-full h-full"
+          ></iframe>
+          {/*
                 <div className="w-[500px] p-0 h-full bg-[#F5EDE6] rounded-3xl flex flex-col text-center items-center justify-center overflow-hidden">
           <svg
             width="396"
@@ -85,407 +88,516 @@ const SessionPage = ({ params }: any) => {
           </div>
         </div>
         */}
-        <div className="w-[500px] p-0 h-full bg-[#F5EDE6] rounded-3xl flex flex-col items-center overflow-hidden">
-          <div className={"h-full w-full p-[28px] flex flex-col gap-[24px]"}>
-            <div className={"flex items-center justify-between"}>
-              <div className={"flex items-center gap-1"}>
-                <img
-                  src="/examplepp.png"
-                  className={"h-[20px] aspect-square"}
-                />
-                <p
-                  className={
-                    "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
-                  }
-                >
-                  Randomtextwillbehere
-                </p>
+          <div className="w-[500px] p-0 h-full bg-[#F5EDE6] rounded-3xl flex flex-col items-center overflow-hidden">
+            <div className={"h-full w-full p-[28px] flex flex-col gap-[24px]"}>
+              <div className={"flex items-center justify-between"}>
+                <div className={"flex items-center gap-1"}>
+                  <img
+                    src="/examplepp.png"
+                    className={"h-[20px] aspect-square"}
+                  />
+                  <p
+                    className={
+                      "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
+                    }
+                  >
+                    Randomtextwillbehere
+                  </p>
+                </div>
+                <div className={"flex items-center gap-1 "}>
+                  <div
+                    className={
+                      "w-[12px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                  <div
+                    className={
+                      "w-[10px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                  <div
+                    className={"w-[8px] aspect-square bg-black/10 rounded-full"}
+                  />
+                  <div
+                    className={
+                      "w-[10px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                  <div
+                    className={
+                      "w-[12px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                </div>
+                <div className={"flex items-center gap-1"}>
+                  <img
+                    src="/examplepp.png"
+                    className={"h-[20px] aspect-square"}
+                  />
+                  <p
+                    className={
+                      "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
+                    }
+                  >
+                    Randomtextwillbehere
+                  </p>
+                </div>
               </div>
-              <div className={"flex items-center gap-1 "}>
-                <div
-                  className={"w-[12px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[10px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[8px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[10px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[12px] aspect-square bg-black/10 rounded-full"}
-                />
+              <div className={"flex items-center justify-between"}>
+                <div className={"flex items-center gap-1"}>
+                  <img
+                    src="/examplepp.png"
+                    className={"h-[20px] aspect-square"}
+                  />
+                  <p
+                    className={
+                      "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
+                    }
+                  >
+                    Randomtextwillbehere
+                  </p>
+                </div>
+                <div className={"flex items-center gap-1 "}>
+                  <div
+                    className={
+                      "w-[12px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                  <div
+                    className={
+                      "w-[10px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                  <div
+                    className={"w-[8px] aspect-square bg-black/10 rounded-full"}
+                  />
+                  <div
+                    className={
+                      "w-[10px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                  <div
+                    className={
+                      "w-[12px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                </div>
+                <div className={"flex items-center gap-1"}>
+                  <img
+                    src="/examplepp.png"
+                    className={"h-[20px] aspect-square"}
+                  />
+                  <p
+                    className={
+                      "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
+                    }
+                  >
+                    Randomtextwillbehere
+                  </p>
+                </div>
               </div>
-              <div className={"flex items-center gap-1"}>
-                <img
-                  src="/examplepp.png"
-                  className={"h-[20px] aspect-square"}
-                />
-                <p
-                  className={
-                    "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
-                  }
-                >
-                  Randomtextwillbehere
-                </p>
+              <div className={"flex items-center justify-between"}>
+                <div className={"flex items-center gap-1"}>
+                  <img
+                    src="/examplepp.png"
+                    className={"h-[20px] aspect-square"}
+                  />
+                  <p
+                    className={
+                      "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
+                    }
+                  >
+                    Randomtextwillbehere
+                  </p>
+                </div>
+                <div className={"flex items-center gap-1 "}>
+                  <div
+                    className={
+                      "w-[12px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                  <div
+                    className={
+                      "w-[10px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                  <div
+                    className={"w-[8px] aspect-square bg-black/10 rounded-full"}
+                  />
+                  <div
+                    className={
+                      "w-[10px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                  <div
+                    className={
+                      "w-[12px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                </div>
+                <div className={"flex items-center gap-1"}>
+                  <img
+                    src="/examplepp.png"
+                    className={"h-[20px] aspect-square"}
+                  />
+                  <p
+                    className={
+                      "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
+                    }
+                  >
+                    Randomtextwillbehere
+                  </p>
+                </div>
+              </div>
+              <div className={"flex items-center justify-between"}>
+                <div className={"flex items-center gap-1"}>
+                  <img
+                    src="/examplepp.png"
+                    className={"h-[20px] aspect-square"}
+                  />
+                  <p
+                    className={
+                      "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
+                    }
+                  >
+                    Randomtextwillbehere
+                  </p>
+                </div>
+                <div className={"flex items-center gap-1 "}>
+                  <div
+                    className={
+                      "w-[12px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                  <div
+                    className={
+                      "w-[10px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                  <div
+                    className={"w-[8px] aspect-square bg-black/10 rounded-full"}
+                  />
+                  <div
+                    className={
+                      "w-[10px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                  <div
+                    className={
+                      "w-[12px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                </div>
+                <div className={"flex items-center gap-1"}>
+                  <img
+                    src="/examplepp.png"
+                    className={"h-[20px] aspect-square"}
+                  />
+                  <p
+                    className={
+                      "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
+                    }
+                  >
+                    Randomtextwillbehere
+                  </p>
+                </div>
+              </div>
+              <div className={"flex items-center justify-between"}>
+                <div className={"flex items-center gap-1"}>
+                  <img
+                    src="/examplepp.png"
+                    className={"h-[20px] aspect-square"}
+                  />
+                  <p
+                    className={
+                      "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
+                    }
+                  >
+                    Randomtextwillbehere
+                  </p>
+                </div>
+                <div className={"flex items-center gap-1 "}>
+                  <div
+                    className={
+                      "w-[12px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                  <div
+                    className={
+                      "w-[10px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                  <div
+                    className={"w-[8px] aspect-square bg-black/10 rounded-full"}
+                  />
+                  <div
+                    className={
+                      "w-[10px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                  <div
+                    className={
+                      "w-[12px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                </div>
+                <div className={"flex items-center gap-1"}>
+                  <img
+                    src="/examplepp.png"
+                    className={"h-[20px] aspect-square"}
+                  />
+                  <p
+                    className={
+                      "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
+                    }
+                  >
+                    Randomtextwillbehere
+                  </p>
+                </div>
+              </div>
+              <div className={"flex items-center justify-between"}>
+                <div className={"flex items-center gap-1"}>
+                  <img
+                    src="/examplepp.png"
+                    className={"h-[20px] aspect-square"}
+                  />
+                  <p
+                    className={
+                      "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
+                    }
+                  >
+                    Randomtextwillbehere
+                  </p>
+                </div>
+                <div className={"flex items-center gap-1 "}>
+                  <div
+                    className={
+                      "w-[12px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                  <div
+                    className={
+                      "w-[10px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                  <div
+                    className={"w-[8px] aspect-square bg-black/10 rounded-full"}
+                  />
+                  <div
+                    className={
+                      "w-[10px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                  <div
+                    className={
+                      "w-[12px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                </div>
+                <div className={"flex items-center gap-1"}>
+                  <img
+                    src="/examplepp.png"
+                    className={"h-[20px] aspect-square"}
+                  />
+                  <p
+                    className={
+                      "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
+                    }
+                  >
+                    Randomtextwillbehere
+                  </p>
+                </div>
+              </div>
+              <div className={"flex items-center justify-between"}>
+                <div className={"flex items-center gap-1"}>
+                  <img
+                    src="/examplepp.png"
+                    className={"h-[20px] aspect-square"}
+                  />
+                  <p
+                    className={
+                      "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
+                    }
+                  >
+                    Randomtextwillbehere
+                  </p>
+                </div>
+                <div className={"flex items-center gap-1 "}>
+                  <div
+                    className={
+                      "w-[12px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                  <div
+                    className={
+                      "w-[10px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                  <div
+                    className={"w-[8px] aspect-square bg-black/10 rounded-full"}
+                  />
+                  <div
+                    className={
+                      "w-[10px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                  <div
+                    className={
+                      "w-[12px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                </div>
+                <div className={"flex items-center gap-1"}>
+                  <img
+                    src="/examplepp.png"
+                    className={"h-[20px] aspect-square"}
+                  />
+                  <p
+                    className={
+                      "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
+                    }
+                  >
+                    Randomtextwillbehere
+                  </p>
+                </div>
+              </div>
+              <div className={"flex items-center justify-between"}>
+                <div className={"flex items-center gap-1"}>
+                  <img
+                    src="/examplepp.png"
+                    className={"h-[20px] aspect-square"}
+                  />
+                  <p
+                    className={
+                      "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
+                    }
+                  >
+                    Randomtextwillbehere
+                  </p>
+                </div>
+                <div className={"flex items-center gap-1 "}>
+                  <div
+                    className={
+                      "w-[12px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                  <div
+                    className={
+                      "w-[10px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                  <div
+                    className={"w-[8px] aspect-square bg-black/10 rounded-full"}
+                  />
+                  <div
+                    className={
+                      "w-[10px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                  <div
+                    className={
+                      "w-[12px] aspect-square bg-black/10 rounded-full"
+                    }
+                  />
+                </div>
+                <div className={"flex items-center gap-1"}>
+                  <img
+                    src="/examplepp.png"
+                    className={"h-[20px] aspect-square"}
+                  />
+                  <p
+                    className={
+                      "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
+                    }
+                  >
+                    Randomtextwillbehere
+                  </p>
+                </div>
               </div>
             </div>
-            <div className={"flex items-center justify-between"}>
-              <div className={"flex items-center gap-1"}>
-                <img
-                  src="/examplepp.png"
-                  className={"h-[20px] aspect-square"}
-                />
-                <p
+            <div
+              className={
+                "h-[160px] w-[calc(100%-16px)] mb-[8px] rounded-2xl bg-white p-[20px] pb-[28px] flex flex-col"
+              }
+            >
+              <div className={"flex items-center"}>
+                <div className={"flex items-center gap-[8px]"}>
+                  <img src="/examplepp.png" className={"w-[20px] h-[20px]"} />
+                  <p
+                    className={
+                      "text-black/50 mix-blend-mode-darker font-medium text-[15px]"
+                    }
+                  >
+                    <span className={"text-black"}>Emirhan </span>is speaking
+                  </p>
+                </div>
+                <div
                   className={
-                    "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
+                    "bg-[#F5EDE6] px-[12px] py-[4px] rounded-full ml-auto text-[15px] leading-[20px] font-medium text-[#756D66] "
                   }
                 >
-                  Randomtextwillbehere
-                </p>
+                  4 <span className={"text-[#B5ADA6]"}>:</span> 59
+                </div>
               </div>
-              <div className={"flex items-center gap-1 "}>
-                <div
-                  className={"w-[12px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[10px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[8px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[10px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[12px] aspect-square bg-black/10 rounded-full"}
-                />
-              </div>
-              <div className={"flex items-center gap-1"}>
-                <img
-                  src="/examplepp.png"
-                  className={"h-[20px] aspect-square"}
-                />
-                <p
-                  className={
-                    "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
-                  }
-                >
-                  Randomtextwillbehere
-                </p>
-              </div>
-            </div>
-            <div className={"flex items-center justify-between"}>
-              <div className={"flex items-center gap-1"}>
-                <img
-                  src="/examplepp.png"
-                  className={"h-[20px] aspect-square"}
-                />
-                <p
-                  className={
-                    "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
-                  }
-                >
-                  Randomtextwillbehere
-                </p>
-              </div>
-              <div className={"flex items-center gap-1 "}>
-                <div
-                  className={"w-[12px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[10px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[8px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[10px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[12px] aspect-square bg-black/10 rounded-full"}
-                />
-              </div>
-              <div className={"flex items-center gap-1"}>
-                <img
-                  src="/examplepp.png"
-                  className={"h-[20px] aspect-square"}
-                />
-                <p
-                  className={
-                    "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
-                  }
-                >
-                  Randomtextwillbehere
-                </p>
-              </div>
-            </div>
-            <div className={"flex items-center justify-between"}>
-              <div className={"flex items-center gap-1"}>
-                <img
-                  src="/examplepp.png"
-                  className={"h-[20px] aspect-square"}
-                />
-                <p
-                  className={
-                    "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
-                  }
-                >
-                  Randomtextwillbehere
-                </p>
-              </div>
-              <div className={"flex items-center gap-1 "}>
-                <div
-                  className={"w-[12px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[10px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[8px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[10px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[12px] aspect-square bg-black/10 rounded-full"}
-                />
-              </div>
-              <div className={"flex items-center gap-1"}>
-                <img
-                  src="/examplepp.png"
-                  className={"h-[20px] aspect-square"}
-                />
-                <p
-                  className={
-                    "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
-                  }
-                >
-                  Randomtextwillbehere
-                </p>
-              </div>
-            </div>
-            <div className={"flex items-center justify-between"}>
-              <div className={"flex items-center gap-1"}>
-                <img
-                  src="/examplepp.png"
-                  className={"h-[20px] aspect-square"}
-                />
-                <p
-                  className={
-                    "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
-                  }
-                >
-                  Randomtextwillbehere
-                </p>
-              </div>
-              <div className={"flex items-center gap-1 "}>
-                <div
-                  className={"w-[12px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[10px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[8px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[10px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[12px] aspect-square bg-black/10 rounded-full"}
-                />
-              </div>
-              <div className={"flex items-center gap-1"}>
-                <img
-                  src="/examplepp.png"
-                  className={"h-[20px] aspect-square"}
-                />
-                <p
-                  className={
-                    "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
-                  }
-                >
-                  Randomtextwillbehere
-                </p>
-              </div>
-            </div>
-            <div className={"flex items-center justify-between"}>
-              <div className={"flex items-center gap-1"}>
-                <img
-                  src="/examplepp.png"
-                  className={"h-[20px] aspect-square"}
-                />
-                <p
-                  className={
-                    "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
-                  }
-                >
-                  Randomtextwillbehere
-                </p>
-              </div>
-              <div className={"flex items-center gap-1 "}>
-                <div
-                  className={"w-[12px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[10px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[8px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[10px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[12px] aspect-square bg-black/10 rounded-full"}
-                />
-              </div>
-              <div className={"flex items-center gap-1"}>
-                <img
-                  src="/examplepp.png"
-                  className={"h-[20px] aspect-square"}
-                />
-                <p
-                  className={
-                    "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
-                  }
-                >
-                  Randomtextwillbehere
-                </p>
-              </div>
-            </div>
-            <div className={"flex items-center justify-between"}>
-              <div className={"flex items-center gap-1"}>
-                <img
-                  src="/examplepp.png"
-                  className={"h-[20px] aspect-square"}
-                />
-                <p
-                  className={
-                    "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
-                  }
-                >
-                  Randomtextwillbehere
-                </p>
-              </div>
-              <div className={"flex items-center gap-1 "}>
-                <div
-                  className={"w-[12px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[10px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[8px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[10px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[12px] aspect-square bg-black/10 rounded-full"}
-                />
-              </div>
-              <div className={"flex items-center gap-1"}>
-                <img
-                  src="/examplepp.png"
-                  className={"h-[20px] aspect-square"}
-                />
-                <p
-                  className={
-                    "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
-                  }
-                >
-                  Randomtextwillbehere
-                </p>
-              </div>
-            </div>
-            <div className={"flex items-center justify-between"}>
-              <div className={"flex items-center gap-1"}>
-                <img
-                  src="/examplepp.png"
-                  className={"h-[20px] aspect-square"}
-                />
-                <p
-                  className={
-                    "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
-                  }
-                >
-                  Randomtextwillbehere
-                </p>
-              </div>
-              <div className={"flex items-center gap-1 "}>
-                <div
-                  className={"w-[12px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[10px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[8px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[10px] aspect-square bg-black/10 rounded-full"}
-                />
-                <div
-                  className={"w-[12px] aspect-square bg-black/10 rounded-full"}
-                />
-              </div>
-              <div className={"flex items-center gap-1"}>
-                <img
-                  src="/examplepp.png"
-                  className={"h-[20px] aspect-square"}
-                />
-                <p
-                  className={
-                    "text-black/75 w-[72px] text-ellipsis overflow-hidden text-[15px] font-medium"
-                  }
-                >
-                  Randomtextwillbehere
-                </p>
-              </div>
-            </div>
-          </div>
-          <div
-            className={
-              "h-[160px] w-[calc(100%-16px)] mb-[8px] rounded-2xl bg-white p-[20px] pb-[28px] flex flex-col"
-            }
-          >
-            <div className={"flex items-center"}>
-              <div className={"flex items-center gap-[8px]"}>
-                <img src="/examplepp.png" className={"w-[20px] h-[20px]"} />
-                <p
-                  className={
-                    "text-black/50 mix-blend-mode-darker font-medium text-[15px]"
-                  }
-                >
-                  <span className={"text-black"}>Emirhan </span>is speaking
-                </p>
-              </div>
-              <div
-                className={
-                  "bg-[#F5EDE6] px-[12px] py-[4px] rounded-full ml-auto text-[15px] leading-[20px] font-medium text-[#756D66] "
-                }
-              >
-                4 <span className={"text-[#B5ADA6]"}>:</span> 59
-              </div>
-            </div>
-            <p className={"text-[17px] leading-[24px] font-semibold"}>
-              Vote when you feel ready
-            </p>
-            <div className={"flex items-center justify-between mt-auto"}>
-              <p className={"text-[15px] text-black/50 font-medium"}>
-                Disagree
+              <p className={"text-[17px] leading-[24px] font-semibold"}>
+                Vote when you feel ready
               </p>
-              <div className={"flex items-center gap-[6px]"}>
-                <div className="flex items-center me-4"></div>
+              <div className={"flex items-center justify-between mt-auto"}>
+                <p className={"text-[15px] text-black/50 font-medium"}>
+                  Disagree
+                </p>
+                <div className={"flex items-center gap-[6px]"}>
+                  <div className="flex items-center me-4">
+                    <div className="flex items-center justify-center "></div>
+                  </div>
+                </div>
+                <p className={"text-[15px] text-black/50 font-medium"}>Agree</p>
               </div>
-              <p className={"text-[15px] text-black/50 font-medium"}>Agree</p>
             </div>
           </div>
         </div>
+      </div>
+      <div className={"pl-[256px] pr-[40px] pb-[64px]"}>
+        <Tabs.Root>
+          <Tabs.List className={"flex items-center gap-[8px]"}>
+            <Tabs.Trigger
+              value="tab1"
+              className={
+                "px-[20px] py-[8px] data-[state=active]:bg-white rounded-full"
+              }
+            >
+              Proposal details
+            </Tabs.Trigger>
+            <Tabs.Trigger
+              value="tab2"
+              className={
+                "px-[20px] py-[8px] data-[state=active]:bg-white rounded-full"
+              }
+            >
+              Dot collector
+            </Tabs.Trigger>
+          </Tabs.List>
+          <Tabs.Content value="tab1">
+            <p
+              className={
+                "pl-[20px] pr-[400px] text-[20px] font-medium leading-[28px] pt-[32px]"
+              }
+            >
+              <p>
+                A proposal to make parameter changes on the Polygon Aave v3
+                market. For more details, see the full forum post here.
+              </p>
+              <p className={"mt-4"}>
+                Per Gauntlet’s supply and borrow cap methodology, we recommend
+                setting supply and borrow caps for agEUR and jEUR. Currently
+                agEUR borrowing is disabled as borrowing and cannot be used as
+                collateral. jEUR is frozen. Despite this, all assets should have
+                supply and borrow caps.
+              </p>
+            </p>
+          </Tabs.Content>
+          <Tabs.Content value="tab2">Tab two content</Tabs.Content>
+        </Tabs.Root>
       </div>
     </div>
   );
