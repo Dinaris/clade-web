@@ -1,8 +1,9 @@
 import React from "react";
 import SoundIcon from "../icons/SoundIcon";
-import { SpaceCard } from "@/types";
+import { SessionCard } from "@/types";
+import Link from "next/link";
 
-const SpaceCard = ({ daoName, color, text }: SpaceCard) => {
+const SessionCard = ({ daoName, color, text, sessionId }: SessionCard) => {
   return (
     <div
       className={
@@ -62,16 +63,17 @@ const SpaceCard = ({ daoName, color, text }: SpaceCard) => {
             </p>
           </span>
         </div>
-        <button
+        <Link
           className={
             "text-[17px] font-semibold leading-[24px] bg-white/25  text-white py-[8px] px-[20px] rounded-full"
           }
+          href={`/session/${sessionId}`}
         >
           Start Listening
-        </button>
+        </Link>
       </div>
     </div>
   );
 };
 
-export default SpaceCard;
+export default SessionCard;

@@ -1,7 +1,8 @@
 import React from "react";
 import CalendarIcon from "@/components/icons/CalendarIcon";
+import { UpcomingCard } from "@/types";
 
-const SpaceCard = ({ daoName, text }) => {
+const UpcomingCard = ({ daoName, text }: UpcomingCard) => {
   return (
     <div
       className={
@@ -47,4 +48,4 @@ const SpaceCard = ({ daoName, text }) => {
   );
 };
 
-export default SpaceCard;
+export default UpcomingCard;
