@@ -6,7 +6,7 @@ const UpcomingCard = ({ daoName, text }: UpcomingCard) => {
   return (
     <div
       className={
-        "h-[288px] w-[448px] gap-[16px] flex flex-col  rounded-3xl p-[28px] pb-[22px] bg-[#F5EDE6]"
+        "h-[288px] w-[440px] gap-[16px] flex flex-col  rounded-3xl p-[28px] pb-[22px] bg-[#F5EDE6]"
       }
     >
       <div className={"flex items-center gap-[12px] "}>
