@@ -1,7 +1,7 @@
 import React from "react";
 import VerifiedIcon from "@/components/icons/VerifiedIcon";
 
-const JoinedCard = ({ daoName }) => {
+const JoinedCard = ({ daoName }: any) => {
   return (
     <div
       className={
