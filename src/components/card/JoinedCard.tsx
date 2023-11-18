@@ -12,7 +12,7 @@ const JoinedCard = ({ daoName, address }: any) => {
       />
       <div className={"mt-[20px] flex flex-col items-center gap-[4px]"}>
         <div className={"flex items-center gap-[6px]"}>
-          <Link href={`/${address}`} className={"text-[20px] font-medium text-black leading-[20px]"}>
+          <Link href={`/dao/${address}`} className={"text-[20px] font-medium text-black leading-[20px]"}>
             {daoName}
           </Link>
           <VerifiedIcon className={"opacity-50 mix-blend-mode-darken"} />

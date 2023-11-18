@@ -163,7 +163,9 @@ const Page = () => {
     getDaos();
   }, []);
 
-  const daoCards = daos.map((dao: any) => <JoinedCard key={dao.key} daoName={dao.name} address={dao.address} />);
+  const daoCards = daos.map((dao: any) => (
+    <JoinedCard key={dao.key} daoName={dao.name} address={dao.contractAddress} />
+  ));
 
   console.log("daos: ", daos);
 
