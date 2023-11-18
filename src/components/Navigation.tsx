@@ -13,15 +13,15 @@ const Navigation = () => {
         "h-[calc(100vh-92px)] w-[256px] fixed top-[92px] left-0  flex flex-col gap-[32px] pl-[48px] pt-[16px]"
       }
     >
-      <Link href={"test"} className={"flex items-center gap-[16px]"}>
+      <Link href={"/"} className={"flex items-center gap-[16px]"}>
         <HomeIcon className={"w-[28px] h-[28px]"} />
         <p className={"text-xl"}>Home</p>
       </Link>
-      <Link href={"test"} className={"flex items-center gap-[16px]"}>
+      <Link href={"/explore"} className={"flex items-center gap-[16px]"}>
         <ExploreIcon className={"w-[28px] h-[28px]"} />
         <p className={"text-xl"}>Explore</p>
       </Link>
-      <Link href={"test"} className={"flex items-center gap-[16px]"}>
+      <Link href={"profile"} className={"flex items-center gap-[16px]"}>
         <ProfileIcon className={"w-[28px] h-[28px]"} />
         <p className={"text-xl"}>Profile</p>
       </Link>
