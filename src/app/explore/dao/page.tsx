@@ -4,6 +4,7 @@ import LinkIcon from "@/components/icons/LinkIcon";
 import * as Tabs from "@radix-ui/react-tabs";
 import React from "react";
 import UpcomingCard from "@/components/card/UpcomingCard";
+import CrosscircleIcon from "@/components/icons/CrosscircleIcon";
 
 const Page = () => {
     return (
@@ -34,7 +35,7 @@ const Page = () => {
                             "px-[20px] py-[8px] text-black/50 data-[state=active]:bg-white data-[state=active]:text-black rounded-lg"
                         }
                     >
-                        Proposal details
+                        Proposal
                     </Tabs.Trigger>
                     <Tabs.Trigger
                         value="tab2"
@@ -42,21 +43,28 @@ const Page = () => {
                             "px-[20px] py-[8px] text-black/50 data-[state=active]:bg-white data-[state=active]:text-black rounded-lg"
                         }
                     >
-                        Dot collector
+                        Members
                     </Tabs.Trigger>
                 </Tabs.List>
                 <Tabs.Content value="tab1" className={"mt-[16px]"}>
                     <div className={"flex flex-col gap-[16px] w-full"}>
-                        <p
-                            className={
-                                "pl-[44px] text-[24px] font-semibold text-black opacity-50 mix-blend-darken"
-                            }
-                        >
-                            Upcoming
-                        </p>
                         <div className={"flex gap-[16px] flex-wrap overflow-hidden "}>
-                            <div className={"w-[440px]"}></div>
-
+                            <div className={"w-[440px] h-[288px] bg-[#F5EDE6] p-[28px] pb-[22px] rounded-3xl flex flex-col gap-[16px]"}>
+                                <div className={"flex items-center gap-[12px]"}>
+                                    <img className={"w-[32px] aspect-square"} src="/examplepp.png" alt=""/>
+                                    <p className={"text-black/50 font-medium"}>benjitaylor.eth</p>
+                                </div>
+                                <p
+                                    className={"h-[108px] text-black  text-[28px] font-semibold line-clamp-3 overflow-hidden whitespace-pre-wrap"}
+                                    style={{ lineHeight: "36px" }}
+                                >
+                                    test etsasdas dkamsd kasmd kşas mdşasm dkşamsdk şmask şdmaşks dmakşsm
+                                </p>
+                                <div className={"flex items-center justify-between mt-auto w-full"}>
+                                    <div>conditional</div>
+                                    <button className={"bg-white text-black py-[8px] rounded-full  px-[20px]"}>Set Reminder</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </Tabs.Content>
