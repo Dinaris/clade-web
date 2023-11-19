@@ -1,25 +1,13 @@
-export type SessionCard = {
+export type ProposalCard = {
   daoName: string;
   color: string;
   text: string;
-  sessionId: string;
+  proposalId: string;
 };
 
 export type UpcomingCard = {
   daoName: string;
   text: string;
-};
-
-export type Session = {
-  proposalId: number;
-  createTime: string;
-  startTime: string;
-  endTime: string;
-  status: number;
-
-  members: string[];
-  voices: string[];
-  moderators: string[];
 };
 
 export type Proposal = {
@@ -57,10 +45,7 @@ export type DaoConfig = {
   owner: string;
 };
 
-export type Dao =
-  | {
-      sessions: Session[];
-      proposals: Proposal[];
-      members: Member[];
-    }
-  | DaoConfig;
+export type Dao = {
+  proposals: Proposal[];
+  members: Member[];
+} & DaoConfig;

@@ -9,9 +9,7 @@ import { Button } from "@/components/ui/button";
 const Navigation = () => {
   return (
     <nav
-      className={
-        "h-[calc(100vh-92px)] w-[256px] fixed top-[92px] left-0  flex flex-col gap-[32px] pl-[48px] pt-[16px]"
-      }
+      className={"h-[calc(100vh-92px)] w-[256px] fixed top-[92px] left-0  flex flex-col gap-[32px] pl-[48px] pt-[16px]"}
     >
       <Link href={"/"} className={"flex items-center gap-[16px]"}>
         <HomeIcon className={"w-[28px] h-[28px]"} />
@@ -21,7 +19,7 @@ const Navigation = () => {
         <ExploreIcon className={"w-[28px] h-[28px]"} />
         <p className={"text-xl"}>Explore</p>
       </Link>
-      <Link href={"profile"} className={"flex items-center gap-[16px]"}>
+      <Link href={"/profile"} className={"flex items-center gap-[16px]"}>
         <ProfileIcon className={"w-[28px] h-[28px]"} />
         <p className={"text-xl"}>Profile</p>
       </Link>

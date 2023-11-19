@@ -11,7 +11,7 @@ import { useWalletClient, useChainId, useWaitForTransaction, useAccount, readCon
 import DaoABI from "@/abi/Dao.json";
 import ConnectButton from "@/components/button/ConnectButton";
 import axios from "axios";
-import { Dao, DaoConfig, Member, Proposal, Session } from "@/types";
+import { Dao, DaoConfig, Member, Proposal } from "@/types";
 
 const Page = () => {
   const [daos, setDaos] = useState<Dao[]>([]);
@@ -61,40 +61,14 @@ const Page = () => {
       const daosResult = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/daos`);
       const daos: Dao[] = await Promise.all(
         daosResult.data.map(async (dao: DaoConfig) => {
-          const methods = ["sessionCount", "proposalCount", "memberCount"];
-          const [{ result: sessionCount }, { result: proposalCount }, { result: memberCount }] = await readContracts({
+          const methods = ["proposalCount", "memberCount"];
+          const [{ result: proposalCount }, { result: memberCount }] = await readContracts({
             contracts: methods.map((method) => ({
               abi: DaoABI.abi as any,
               address: dao.contractAddress as `0x${string}`,
               functionName: method,
             })),
           });
-          const sessions: Session[] = await Promise.all(
-            [...Array(Number(sessionCount!)).keys()].map(async (sessionId) => {
-              const [{ result }] = await readContracts({
-                contracts: [
-                  {
-                    abi: DaoABI.abi as any,
-                    address: dao.contractAddress as `0x${string}`,
-                    functionName: "sessions",
-                    args: [sessionId],
-                  },
-                ],
-              });
-
-              return {
-                proposalId: Number(result?.[0]),
-                createTime: result?.[1].toString(),
-                startTime: result?.[2].toString(),
-                endTime: result?.[3].toString(),
-                status: Number(result?.[4]),
-
-                members: result?.[5],
-                voices: result?.[6],
-                moderators: result?.[7],
-              } as Session;
-            })
-          );
           const proposals: Proposal[] = await Promise.all(
             [...Array(Number(proposalCount!)).keys()].map(async (proposalId) => {
               const [{ result }] = await readContracts({
@@ -137,7 +111,6 @@ const Page = () => {
                 ],
               });
 
-              console.log("memberResult: ", result);
               return {
                 address: result?.[0],
                 userType: Number(result?.[1]), //0 - member, 1 - moderator, 2 - council
@@ -151,7 +124,6 @@ const Page = () => {
 
           return {
             ...dao,
-            sessions,
             proposals,
             members,
           };
@@ -163,9 +135,7 @@ const Page = () => {
     getDaos();
   }, []);
 
-  const daoCards = daos.map((dao: any) => (
-    <JoinedCard key={dao.key} daoName={dao.name} address={dao.contractAddress} />
-  ));
+  const daoCards = daos.map((dao: any) => <JoinedCard {...dao} />);
 
   console.log("daos: ", daos);
 
@@ -207,19 +177,6 @@ const Page = () => {
                             className="w-full cursor-pointer h-full absolute opacity-0"
                           />
                         </div>
-                        <Select>
-                          <SelectTrigger className="w-full mt-2  bg-[#F1E7DF] placeholder-[#756D66] h-14 outline-none border-none px-[24px] py-[14px] rounded-[12px] font-medium">
-                            <SelectValue placeholder="Theme" />
-                          </SelectTrigger>
-                          <SelectContent className={"z-[999]"}>
-                            <SelectItem value="test">
-                              <div className={"flex items-center gap-2"}>
-                                <img src="/examplepp.png" alt="" />
-                                Example
-                              </div>
-                            </SelectItem>
-                          </SelectContent>
-                        </Select>
 
                         <input
                           className={
