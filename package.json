@@ -9,6 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@lens-protocol/metadata": "^1.0.5",
+    "@lens-protocol/react-web": "^2.0.0-alpha.21",
+    "@lens-protocol/wagmi": "^3.0.0-alpha.18",
+    "@lens-protocol/widgets-react": "^2.0.8",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-popover": "1.0.7",
@@ -19,6 +23,7 @@
     "axios": "^1.6.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "ethers": "^5.7.2",
     "lucide-react": "^0.292.0",
     "next": "14.0.3",
     "next-auth": "^4.24.5",
