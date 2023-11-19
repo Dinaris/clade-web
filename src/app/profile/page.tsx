@@ -1,17 +1,16 @@
 "use client";
 
-import React, {useEffect, useState} from "react";
-import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
+import React, { useEffect, useState } from "react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import JoinedCard from "@/components/card/JoinedCard";
-import {Dao, DaoConfig, Member, Proposal} from "@/types";
-import {readContracts, useAccount} from "wagmi";
+import { Dao, DaoConfig, Member, Proposal } from "@/types";
+import { readContracts, useAccount } from "wagmi";
 import axios from "axios";
 import DaoABI from "@/abi/Dao.json";
 import WorldcoinIcon from "@/components/icons/WorldcoinIcon";
-import {useLogin} from "@lens-protocol/react";
+// import { useLogin } from "@lens-protocol/react";
 
 const Page = () => {
-
   const [daos, setDaos] = useState<Dao[]>([]);
   const { address: account } = useAccount();
   useEffect(() => {
@@ -98,14 +97,14 @@ const Page = () => {
 
   // LENS PROTOCOL
 
-  const { execute, loading, data: lensData, error } = useLogin();
+  /* const { execute, loading, data: lensData, error } = useLogin();
 
   const loginWithLens = (profileId: any) => {
     execute({
       address: account,
       profileId: profileId,
     });
-  };
+  }; */
 
   // @ts-ignore
   return (
@@ -113,22 +112,22 @@ const Page = () => {
       <div className={"flex gap-[20px] h-[144px]"}>
         <img src="/examplepp.png" alt="example" className={"w-[144px] h-[144px] rounded-full"} />
         <div className={"flex flex-col gap-[20px]"}>
-            <Select>
-              <SelectTrigger className="outline-none text-[32px] border-none bg-transparent font-medium">
-                <SelectValue placeholder="Theme" />
-              </SelectTrigger>
-              <SelectContent className={"z-[999]"}>
-                <SelectItem value="test">
-                  <p>name.eth </p>
-                </SelectItem>{" "}
-                <SelectItem value="test2">
-                  <p>name.eth </p>
-                </SelectItem>
-                <SelectItem value="test3">
-                  <p>name.eth </p>
-                </SelectItem>
-              </SelectContent>
-            </Select>
+          <Select>
+            <SelectTrigger className="outline-none text-[32px] border-none bg-transparent font-medium">
+              <SelectValue placeholder="Theme" />
+            </SelectTrigger>
+            <SelectContent className={"z-[999]"}>
+              <SelectItem value="test">
+                <p>name.eth </p>
+              </SelectItem>{" "}
+              <SelectItem value="test2">
+                <p>name.eth </p>
+              </SelectItem>
+              <SelectItem value="test3">
+                <p>name.eth </p>
+              </SelectItem>
+            </SelectContent>
+          </Select>
           <div className={"flex items-center gap-[32px]"}>
             <div className={"bg-white px-[28px] py-[14px] flex w-fit rounded-full items-center gap-[8px]"}>
               <div className={"bg-green-400 rounded-full w-[12px] aspect-square"} />
@@ -136,13 +135,12 @@ const Page = () => {
             </div>
             <div className={"flex items-center gap-[8px]"}>
               <button className={"bg-white px-[28px] py-[14px] flex w-fit rounded-full items-center gap-[8px]"}>
-                <WorldcoinIcon/>
+                <WorldcoinIcon />
                 Verify Via World ID
               </button>
-              <button onClick={!lensData ? loginWithLens : undefined} className={"bg-white px-[28px] py-[14px] flex w-fit rounded-full items-center gap-[8px]"}>
-                {/* @ts-ignore */}
+              {/*               <button onClick={!lensData ? loginWithLens : undefined} className={"bg-white px-[28px] py-[14px] flex w-fit rounded-full items-center gap-[8px]"}>
                 {lensData ? `Logged in as ${lensData.profile.id}` : "Verify Via Lens"}
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
