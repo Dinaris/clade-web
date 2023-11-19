@@ -8,7 +8,7 @@ import ConnectButton from "../button/ConnectButton";
 import axios from "axios";
 
 const UpcomingCard = ({ daoName, text, startTime, proposalId, members }: UpcomingCard) => {
-  const startDate = new Date((+startTime + 7200) * 1000);
+  const startDate = new Date((+startTime + 10800) * 1000);
   const startDateFormatted = `${startDate.toISOString().slice(5, 10)} ${startDate.toISOString().slice(11, 16)}`;
 
   const { address: account } = useAccount();
@@ -24,7 +24,13 @@ const UpcomingCard = ({ daoName, text, startTime, proposalId, members }: Upcomin
     });
   };
 
-  const onInputChange = (address: string) => {
+  const onInputChange = async (address: string) => {
+    const result = await axios.get(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/vote?filterType=voter&filterValue=${account}`
+    );
+    if (result.data) {
+      return setInputError("You have already voted.");
+    }
     if (address.length !== 42) {
       return setInputError("Invalid address");
     }
@@ -88,7 +94,7 @@ const UpcomingCard = ({ daoName, text, startTime, proposalId, members }: Upcomin
                 <div className={"mt-4 bg-gradient-to-t from-[#F5EBE6] flex w-full items-center justify-center"}>
                   {account ? (
                     <button
-                      className={"w-[320px] py-[14px] bg-[#00BBFF] rounded-full text-white"}
+                      className={"w-[320px] py-[14px] bg-[#00BBFF] rounded-full text-white disabled:opacity-30"}
                       onClick={onCast}
                       disabled={!!inputError}
                     >
