@@ -1,3 +1,11 @@
+## DAO Contracts
+
+Celo Mainnet: 0x1Fbe9F24Bff81cCA4646fFd0DEE34BDFc4DA6431
+Linea Mainnet: 0xd4beb70353d40c01c0aa41ccf02ef5692c804510
+Goerli Testnet: 0xdf35487E1B4CeC9543e522cD45a06128cCca4fE8
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
