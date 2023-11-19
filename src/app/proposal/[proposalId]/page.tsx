@@ -25,13 +25,99 @@ const ProposalPage = ({ params }: any) => {
           </div>
           <p className={"text-[32px] leading-[40px] font-semibold"}>Gauntlet Cap Recommendations for Polygon v3</p>
         </div>
-        <div className="flex w-full h-full gap-[16px]">
-          <iframe
-            src={`https://192.168.226.76/${proposalId}`}
-            allow="microphone"
-            id="myIframe"
-            className="rounded-2xl flex w-full h-full"
-          ></iframe>
+        <div className="w-full h-full flex gap-[16px]">
+          <div className="w-full h-full rounded-3xl flex flex-col items-center p-[16px] bg-[#F5EDE6] justify-between">
+            <div className="bg-black/5 rounded-full px-[14px] py-[4px] w-fit">00:08:23</div>
+            <div className="flex flex-col items-center">
+              <div className="flex items-center gap-12">
+                <div className="flex flex-col items-center font-medium gap-2">
+                  <img
+                    src="/examplepp.png"
+                    alt=""
+                    className="w-[120px] rounded-full ring-2 ring-green-500 ring-offset-4"
+                  />
+                  <p>ardasari.eth</p>
+                </div>
+                <div className="flex flex-col gap-2 items-center font-medium">
+                  <img src="/examplepp.png" alt="" className="w-[120px] rounded-full" />
+                  <p>oclar.eth</p>
+                </div>
+              </div>
+              <div className="w-full flex flex-col items-center justify-center mt-32">
+                <p>asdasd</p>
+                <div className="flex items-center w-[50%]">
+                  <div className="flex flex-col items-center font-medium gap-2">
+                    <img src="/examplepp.png" alt="" className="w-[60px] rounded-full" />
+                    <p>ardasari.eth</p>
+                  </div>
+                  <div className="flex flex-col items-center font-medium gap-2">
+                    <img src="/examplepp.png" alt="" className="w-[60px] rounded-full" />
+                    <p>ardasari.eth</p>
+                  </div>
+                  <div className="flex flex-col items-center font-medium gap-2">
+                    <img src="/examplepp.png" alt="" className="w-[60px] rounded-full" />
+                    <p>ardasari.eth</p>
+                  </div>
+                  <div className="flex flex-col items-center font-medium gap-2">
+                    <img src="/examplepp.png" alt="" className="w-[60px] rounded-full" />
+                    <p>ardasari.eth</p>
+                  </div>
+                  <div className="flex flex-col items-center font-medium gap-2">
+                    <img src="/examplepp.png" alt="" className="w-[60px] rounded-full" />
+                    <p>ardasari.eth</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="flex items-center justify-between w-full">
+              <div className="flex -space-x-[8px] items-center">
+                <img
+                  className="w-[42px] aspect-square border-2 rounded-full border-[#F5EDE6]"
+                  src="/examplepp.png"
+                  alt=""
+                />
+                <img
+                  className="w-[42px] aspect-square border-2 rounded-full border-[#F5EDE6]"
+                  src="/examplepp.png"
+                  alt=""
+                />
+                <img
+                  className="w-[42px] aspect-square border-2 rounded-full border-[#F5EDE6]"
+                  src="/examplepp.png"
+                  alt=""
+                />
+                <p className="pl-4">+256 listening</p>
+              </div>
+              <div className="flex items-center gap-[12px]">
+                <button className="flex items-center gap-2 text-red-500 bg-white rounded-full px-[28px] py-[16px]">
+                  <svg width="24" height="20" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M5.1503 4.90824e-07H11.3497C11.9305 -1.21136e-05 12.4224 -2.27848e-05 12.8256 0.0329198C13.2483 0.0674595 13.6556 0.142833 14.0437 0.340608C14.6317 0.640212 15.1098 1.11828 15.4094 1.70628C15.6072 2.09444 15.6825 2.50167 15.7171 2.92442C15.75 3.32764 15.75 3.81946 15.75 4.40034L15.75 7.5H13.875V4.4375C13.875 3.80948 13.8743 3.39484 13.8483 3.0771C13.8232 2.77031 13.7794 2.63729 13.7388 2.55752C13.6189 2.32231 13.4277 2.13109 13.1925 2.01125C13.1127 1.9706 12.9797 1.92676 12.6729 1.90169C12.3552 1.87573 11.9405 1.875 11.3125 1.875H5.1875C4.55947 1.875 4.14484 1.87573 3.8271 1.90169C3.5203 1.92676 3.38729 1.9706 3.30751 2.01125C3.07231 2.13109 2.88109 2.32231 2.76124 2.55752C2.7206 2.63729 2.67676 2.77031 2.65169 3.0771C2.62573 3.39484 2.625 3.80948 2.625 4.4375V15.5625C2.625 16.1905 2.62573 16.6052 2.65169 16.9229C2.67676 17.2297 2.7206 17.3627 2.76124 17.4425C2.88109 17.6777 3.07231 17.8689 3.30751 17.9888C3.38729 18.0294 3.5203 18.0732 3.8271 18.0983C4.14484 18.1243 4.55948 18.125 5.1875 18.125H11.3125C11.9405 18.125 12.3552 18.1243 12.6729 18.0983C12.9797 18.0732 13.1127 18.0294 13.1925 17.9888C13.4277 17.8689 13.6189 17.6777 13.7388 17.4425C13.7794 17.3627 13.8232 17.2297 13.8483 16.9229C13.8743 16.6052 13.875 16.1905 13.875 15.5625V12.5H15.75L15.75 15.5997C15.75 16.1805 15.75 16.6724 15.7171 17.0756C15.6825 17.4983 15.6072 17.9056 15.4094 18.2937C15.1098 18.8817 14.6317 19.3598 14.0437 19.6594C13.6556 19.8572 13.2483 19.9325 12.8256 19.9671C12.4224 20 11.9306 20 11.3497 20H5.15028C4.56943 20 4.07763 20 3.67441 19.9671C3.25167 19.9325 2.84444 19.8572 2.45628 19.6594C1.86828 19.3598 1.39021 18.8817 1.09061 18.2937C0.892832 17.9056 0.817459 17.4983 0.782919 17.0756C0.749975 16.6724 0.749987 16.1806 0.750001 15.5998V4.4003C0.749987 3.81946 0.749975 3.32762 0.782919 2.92442C0.817459 2.50167 0.892832 2.09444 1.09061 1.70628C1.39021 1.11828 1.86828 0.640212 2.45628 0.340608C2.84444 0.142833 3.25167 0.0674595 3.67441 0.0329198C4.07761 -2.27848e-05 4.56948 -1.21136e-05 5.1503 4.90824e-07ZM19.2514 14.6984C18.9002 15.0788 18.3071 15.1026 17.9266 14.7514C17.5462 14.4002 17.5224 13.8071 17.8736 13.4266L20.1713 10.9375H10.4375C9.91973 10.9375 9.5 10.5178 9.5 10C9.5 9.48223 9.91973 9.0625 10.4375 9.0625H20.1713L17.8736 6.57338C17.5224 6.19293 17.5462 5.59981 17.9266 5.24862C18.3071 4.89743 18.9002 4.92115 19.2514 5.30161L23.0014 9.36411C23.3329 9.72323 23.3329 10.2768 23.0014 10.6359L19.2514 14.6984Z"
+                      fill="#FF3A01"
+                    />
+                  </svg>
+                  Leave
+                </button>
+                <button className="flex items-center gap-2 text-black  bg-white rounded-full px-[28px] py-[16px]">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M11.875 3.75V10C11.875 10.168 11.8529 10.3308 11.8115 10.4857L8.125 6.79917V3.75C8.125 2.71447 8.96447 1.875 10 1.875C11.0355 1.875 11.875 2.71447 11.875 3.75ZM6.25 4.92417L1.60041 0.274587C1.2343 -0.0915291 0.640704 -0.0915291 0.274587 0.274587C-0.0915291 0.640704 -0.0915291 1.2343 0.274587 1.60041L18.3996 19.7254C18.7657 20.0915 19.3593 20.0915 19.7254 19.7254C20.0915 19.3593 20.0915 18.7657 19.7254 18.3996L15.4791 14.1533C16.3551 12.9995 16.875 11.5604 16.875 10V8.4375C16.875 7.91973 16.4553 7.5 15.9375 7.5C15.4197 7.5 15 7.91973 15 8.4375V10C15 11.0419 14.6813 12.0094 14.1361 12.8103L13.2308 11.905C13.5607 11.3467 13.75 10.6954 13.75 10V3.75C13.75 1.67893 12.0711 0 10 0C7.92893 0 6.25 1.67893 6.25 3.75V4.92417ZM9.92341 13.7492L6.25077 10.0766C6.29104 12.0868 7.91317 13.709 9.92341 13.7492Z"
+                      fill="black"
+                    />
+                    <path
+                      d="M5 10C5 12.7614 7.23858 15 10 15C10.3642 15 10.7193 14.9611 11.0613 14.8871L12.5577 16.3835C12.0452 16.589 11.5023 16.7346 10.9375 16.8116V18.125H14.0625C14.1596 18.125 14.2533 18.1398 14.3413 18.1672L14.9578 18.7837C14.9852 18.8717 15 18.9654 15 19.0625C15 19.5803 14.5803 20 14.0625 20H5.9375C5.41973 20 5 19.5803 5 19.0625C5 18.5447 5.41973 18.125 5.9375 18.125H9.0625V16.8116C5.70905 16.3544 3.125 13.479 3.125 10V8.4375C3.125 8.03549 3.37803 7.69258 3.73352 7.55935C3.83588 7.52098 3.94674 7.5 4.0625 7.5C4.58027 7.5 5 7.91973 5 8.4375V10Z"
+                      fill="black"
+                    />
+                  </svg>
+                  Unmute
+                </button>
+              </div>
+            </div>
+          </div>
           {/*
                 <div className="w-[500px] p-0 h-full bg-[#F5EDE6] rounded-3xl flex flex-col text-center items-center justify-center overflow-hidden">
           <svg
