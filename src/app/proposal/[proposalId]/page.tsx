@@ -173,7 +173,7 @@ const ProposalPage = ({ params }: any) => {
                 </div>
                 <div className={"flex items-center gap-1 "}>
                   <div className={"w-[12px] aspect-square bg-black/10 rounded-full"} />
-                  <div className={"w-[10px] aspect-square bg-black/10 rounded-full"} />
+                  <div className={"w-[10px] aspect-square bg-red-400 rounded-full"} />
                   <div className={"w-[8px] aspect-square bg-black/10 rounded-full"} />
                   <div className={"w-[10px] aspect-square bg-black/10 rounded-full"} />
                   <div className={"w-[12px] aspect-square bg-black/10 rounded-full"} />
@@ -196,7 +196,7 @@ const ProposalPage = ({ params }: any) => {
                   <div className={"w-[12px] aspect-square bg-black/10 rounded-full"} />
                   <div className={"w-[10px] aspect-square bg-black/10 rounded-full"} />
                   <div className={"w-[8px] aspect-square bg-black/10 rounded-full"} />
-                  <div className={"w-[10px] aspect-square bg-black/10 rounded-full"} />
+                  <div className={"w-[10px] aspect-square bg-green-400 rounded-full"} />
                   <div className={"w-[12px] aspect-square bg-black/10 rounded-full"} />
                 </div>
                 <div className={"flex items-center gap-1"}>
@@ -214,7 +214,7 @@ const ProposalPage = ({ params }: any) => {
                   </p>
                 </div>
                 <div className={"flex items-center gap-1 "}>
-                  <div className={"w-[12px] aspect-square bg-black/10 rounded-full"} />
+                  <div className={"w-[12px] aspect-square bg-red-400 rounded-full"} />
                   <div className={"w-[10px] aspect-square bg-black/10 rounded-full"} />
                   <div className={"w-[8px] aspect-square bg-black/10 rounded-full"} />
                   <div className={"w-[10px] aspect-square bg-black/10 rounded-full"} />
@@ -235,7 +235,7 @@ const ProposalPage = ({ params }: any) => {
                   </p>
                 </div>
                 <div className={"flex items-center gap-1 "}>
-                  <div className={"w-[12px] aspect-square bg-black/10 rounded-full"} />
+                  <div className={"w-[12px] aspect-square bg-red-400 rounded-full"} />
                   <div className={"w-[10px] aspect-square bg-black/10 rounded-full"} />
                   <div className={"w-[8px] aspect-square bg-black/10 rounded-full"} />
                   <div className={"w-[10px] aspect-square bg-black/10 rounded-full"} />
@@ -259,7 +259,7 @@ const ProposalPage = ({ params }: any) => {
                   <div className={"w-[12px] aspect-square bg-black/10 rounded-full"} />
                   <div className={"w-[10px] aspect-square bg-black/10 rounded-full"} />
                   <div className={"w-[8px] aspect-square bg-black/10 rounded-full"} />
-                  <div className={"w-[10px] aspect-square bg-black/10 rounded-full"} />
+                  <div className={"w-[10px] aspect-square bg-green-400 rounded-full"} />
                   <div className={"w-[12px] aspect-square bg-black/10 rounded-full"} />
                 </div>
                 <div className={"flex items-center gap-1"}>
@@ -281,7 +281,7 @@ const ProposalPage = ({ params }: any) => {
                   <div className={"w-[10px] aspect-square bg-black/10 rounded-full"} />
                   <div className={"w-[8px] aspect-square bg-black/10 rounded-full"} />
                   <div className={"w-[10px] aspect-square bg-black/10 rounded-full"} />
-                  <div className={"w-[12px] aspect-square bg-black/10 rounded-full"} />
+                  <div className={"w-[12px] aspect-square bg-green-400 rounded-full"} />
                 </div>
                 <div className={"flex items-center gap-1"}>
                   <img src="/examplepp.png" className={"h-[20px] aspect-square"} />
@@ -298,7 +298,7 @@ const ProposalPage = ({ params }: any) => {
                   </p>
                 </div>
                 <div className={"flex items-center gap-1 "}>
-                  <div className={"w-[12px] aspect-square bg-black/10 rounded-full"} />
+                  <div className={"w-[12px] aspect-square bg-red-400 rounded-full"} />
                   <div className={"w-[10px] aspect-square bg-black/10 rounded-full"} />
                   <div className={"w-[8px] aspect-square bg-black/10 rounded-full"} />
                   <div className={"w-[10px] aspect-square bg-black/10 rounded-full"} />
@@ -321,7 +321,7 @@ const ProposalPage = ({ params }: any) => {
                 <div className={"flex items-center gap-1 "}>
                   <div className={"w-[12px] aspect-square bg-black/10 rounded-full"} />
                   <div className={"w-[10px] aspect-square bg-black/10 rounded-full"} />
-                  <div className={"w-[8px] aspect-square bg-black/10 rounded-full"} />
+                  <div className={"w-[8px] aspect-square bg-gray-400 rounded-full"} />
                   <div className={"w-[10px] aspect-square bg-black/10 rounded-full"} />
                   <div className={"w-[12px] aspect-square bg-black/10 rounded-full"} />
                 </div>
@@ -355,8 +355,12 @@ const ProposalPage = ({ params }: any) => {
               <div className={"flex items-center justify-between mt-auto"}>
                 <p className={"text-[15px] text-black/50 font-medium"}>Disagree</p>
                 <div className={"flex items-center gap-[6px]"}>
-                  <div className="flex items-center me-4">
-                    <div className="flex items-center justify-center "></div>
+                  <div className={"flex items-center gap-1 "}>
+                    <div className={"w-[18px] aspect-square bg-black/10 hover:bg-red-400 rounded-full cursor-pointer"} />
+                    <div className={"w-[14px] aspect-square bg-black/10 hover:bg-red-400 rounded-full cursor-pointer"} />
+                    <div className={"w-[10px] aspect-square bg-black/10 hover:bg-gray-400 rounded-full cursor-pointer"} />
+                    <div className={"w-[14px] aspect-square bg-black/10 hover:bg-green-400 rounded-full cursor-pointer"} />
+                    <div className={"w-[18px] aspect-square bg-black/10 hover:bg-green-400 rounded-full cursor-pointer"} />
                   </div>
                 </div>
                 <p className={"text-[15px] text-black/50 font-medium"}>Agree</p>
