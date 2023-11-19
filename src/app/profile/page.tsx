@@ -108,13 +108,13 @@ const Page = () => {
             </SelectTrigger>
             <SelectContent className={"z-[999]"}>
               <SelectItem value="test">
-                <p>idk asdasdasd </p>
+                <p>name.eth </p>
               </SelectItem>{" "}
               <SelectItem value="test2">
-                <p>idk asdasdasd </p>
+                <p>name.eth </p>
               </SelectItem>
               <SelectItem value="test3">
-                <p>idk asdasdasd </p>
+                <p>name.eth </p>
               </SelectItem>
             </SelectContent>
           </Select>

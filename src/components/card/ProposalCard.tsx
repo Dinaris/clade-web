@@ -39,7 +39,7 @@ const ProposalCard = ({ daoName, color, name, proposalId }: ProposalCard) => {
             />
           </div>
           <span className={"mix-blend-plus-lighter opacity-75"}>
-            <p className={"text-[15px] font-medium text-white opacity-75 mix-blend-plus-lighter"}>832 listening</p>
+            <p className={"text-[15px] font-medium text-white opacity-75 mix-blend-plus-lighter"}>x listening</p>
           </span>
         </div>
         <Link

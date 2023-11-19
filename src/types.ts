@@ -1,13 +1,16 @@
 export type ProposalCard = {
   daoName: string;
+  name: string;
   color: string;
-  text: string;
   proposalId: string;
 };
 
 export type UpcomingCard = {
   daoName: string;
   text: string;
+  startTime: string;
+  proposalId: string;
+  members: string[];
 };
 
 export type Proposal = {

@@ -92,13 +92,14 @@ export default function Home() {
     getDaos();
   }, []);
 
+  console.log("daos", daos);
+
   const userDaos = daos.filter((dao) => dao.members.find((member) => member.address === account));
   const proposals = userDaos.map((dao) => dao.proposals).flat();
   const activeProposals = proposals.filter(
-    (proposal) =>
-      new Date(proposal.startTime).getTime() < Date.now() && new Date(proposal.endTime).getTime() > Date.now()
+    (proposal) => +proposal.startTime * 1000 < Date.now() && +proposal.endTime * 1000 > Date.now()
   );
-  const upcomingProposals = proposals.filter((proposal) => new Date(proposal.startTime).getTime() > Date.now());
+  const upcomingProposals = proposals.filter((proposal) => +proposal.startTime * 1000 > Date.now());
 
   const activeProposalCards = activeProposals.map((proposal) => (
     <ProposalCard
@@ -113,6 +114,13 @@ export default function Home() {
     <UpcomingCard
       daoName={userDaos.find((dao) => dao.proposals.find((s) => s.id === proposal.id))?.name || ""}
       text={proposal.name}
+      startTime={proposal.startTime}
+      proposalId={proposal.id.toString()}
+      members={
+        userDaos
+          .find((dao) => dao.proposals.find((s) => s.id === proposal.id))
+          ?.members.map((member) => member.address) || []
+      }
     />
   ));
 

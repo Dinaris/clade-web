@@ -130,7 +130,8 @@ const DaoPage = ({ params }: { params: { daoAddress: string } }) => {
   const isUserModerator = !!dao?.members.find((member) => member.address === account && member.userType >= 1);
   const isUserCouncil = !!dao?.members.find((member) => member.address === account && member.userType >= 2);
 
-  const onCreateProposal = async () => {
+  const onCreateProposal = async (e) => {
+    e.preventDefault();
     const hash = await walletClient?.writeContract({
       address: dao?.contractAddress as any,
       abi: DaoABI.abi as any,
@@ -148,8 +149,6 @@ const DaoPage = ({ params }: { params: { daoAddress: string } }) => {
     console.log(hash);
   };
 
-  console.log("newProposalData", newProposalData);
-
   const { config: joinConfig } = usePrepareContractWrite({
     address: dao?.contractAddress as any,
     abi: DaoABI.abi as any,
@@ -164,6 +163,9 @@ const DaoPage = ({ params }: { params: { daoAddress: string } }) => {
   };
 
   const ban = async (address: string) => {
+    if (address === account) {
+      return alert("You can't ban yourself!");
+    }
     if (isUserModerator) {
       const hash = await walletClient?.writeContract({
         address: dao?.contractAddress as any,
@@ -176,6 +178,9 @@ const DaoPage = ({ params }: { params: { daoAddress: string } }) => {
   };
 
   const promote = async (address: string) => {
+    if (address === account) {
+      return alert("You can't promote yourself!");
+    }
     if (isUserCouncil) {
       const hash = await walletClient?.writeContract({
         address: dao?.contractAddress as any,
@@ -223,10 +228,10 @@ const DaoPage = ({ params }: { params: { daoAddress: string } }) => {
   console.log("dao", dao);
 
   const proposalCards = dao?.proposals.map((proposal) => (
-    <div className={"w-[440px] h-[288px] bg-[#F5EDE6] p-[28px] pb-[22px] rounded-3xl flex flex-col gap-[16px]"}>
+    <div className={"w-[440px] min-h-[144px] bg-[#F5EDE6] p-[28px] pb-[22px] rounded-3xl flex flex-col gap-[16px]"}>
       <div className={"flex items-center gap-[12px]"}>
         <img className={"w-[32px] aspect-square"} src="/examplepp.png" alt="" />
-        <p className={"text-black/50 font-medium"}>benjitaylor.eth</p>
+        <p className={"text-black/50 font-medium"}>vitalik.eth</p>
       </div>
       <p
         className={"h-[108px] text-black  text-[28px] font-semibold line-clamp-3 overflow-hidden whitespace-pre-wrap"}
@@ -234,10 +239,6 @@ const DaoPage = ({ params }: { params: { daoAddress: string } }) => {
       >
         {proposal.description}
       </p>
-      <div className={"flex items-center justify-between mt-auto w-full"}>
-        <div>conditional</div>
-        <button className={"bg-white text-black py-[8px] rounded-full  px-[20px]"}>Set Reminder</button>
-      </div>
     </div>
   ));
 
